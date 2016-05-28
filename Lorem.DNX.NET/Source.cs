@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LoremNET
@@ -17,7 +18,7 @@ namespace LoremNET
         /// Rearranges the specified words.
         /// </summary>
         /// <param name="words">The words to re-arrange.</param>
-        /// <returns>An IEnumerable containing <see cref="LoremIpsum"/> in a random order.</string></returns>
+        /// <returns>An IEnumerable containing <see cref="LoremIpsum"/> in a random order.</returns>
         internal static IEnumerable<string> Rearrange(string words)
         {
             return words.Split(" ").OrderBy(x => RandomHelper.Instance.Next());
