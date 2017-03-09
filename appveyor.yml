@@ -8,7 +8,7 @@ nuget:
   project_feed: true
 before_build:
 - ps: .\prebuild.ps1
-- cmd: nuget restore
+- cmd: dotnet restore
 build:
   verbosity: minimal
 artifacts:
