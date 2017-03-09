@@ -54,8 +54,8 @@ namespace LoremNET
         /// <remarks>From http://stackoverflow.com/a/1483677/234132 </remarks>
         public static DateTime DateTime(DateTime min, DateTime max)
         {
-            TimeSpan timeSpan = max - min;
-            TimeSpan newSpan = new TimeSpan(0, RandomHelper.Instance.Next(0, (int)timeSpan.TotalMinutes), 0);
+            var timeSpan = max - min;
+            var newSpan = new TimeSpan(0, RandomHelper.Instance.Next(0, (int)timeSpan.TotalMinutes), 0);
 
             return min + newSpan;
         }
@@ -75,21 +75,14 @@ namespace LoremNET
         /// <typeparam name="TEnum">The type of the enum.</typeparam>
         /// <returns>A random <typeparamref name="TEnum"/></returns>
         /// <exception cref="ArgumentException">Generic type must be an enum.</exception>
-        public static TEnum Enum<TEnum>() where TEnum : struct, IConvertible
+        public static TEnum Enum<TEnum>() where TEnum : struct
         {
-#if PCL
-            if (typeof(TEnum).IsEnum)
-            {
-                var v = System.Enum.GetValues(typeof(TEnum));
-                return (TEnum)v.GetValue(RandomHelper.Instance.Next(v.Length));
-            }
-#else
             if (typeof(TEnum).GetTypeInfo().IsEnum)
             {
                 var v = System.Enum.GetValues(typeof(TEnum));
                 return (TEnum)v.GetValue(RandomHelper.Instance.Next(v.Length));
             }
-#endif
+
             throw new ArgumentException("Generic type must be an enum.");
         }
 
@@ -101,9 +94,9 @@ namespace LoremNET
         /// <remarks>From http://stackoverflow.com/a/1054087/234132 </remarks>
         public static string HexNumber(int digits)
         {
-            byte[] buffer = new byte[digits / 2];
+            var buffer = new byte[digits / 2];
             RandomHelper.Instance.NextBytes(buffer);
-            string result = string.Concat(buffer.Select(x => x.ToString("X2")).ToArray());
+            var result = string.Concat(buffer.Select(x => x.ToString("X2")).ToArray());
 
             if (digits % 2 == 0)
             {
@@ -132,9 +125,9 @@ namespace LoremNET
         /// <remarks>From http://stackoverflow.com/a/6651661/234132 </remarks>
         public static long Number(long min, long max)
         {
-            byte[] buf = new byte[8];
+            var buf = new byte[8];
             RandomHelper.Instance.NextBytes(buf);
-            long longRand = BitConverter.ToInt64(buf, 0);
+            var longRand = BitConverter.ToInt64(buf, 0);
 
             return (Math.Abs(longRand % ((max + 1) - min)) + min);
         }
