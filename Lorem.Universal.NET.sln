@@ -8,9 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
 		license.md = license.md
-		nuget.config = nuget.config
-		Lorem.NET\nuget.exe = Lorem.NET\nuget.exe
-		postbuild.ps1 = postbuild.ps1
 		prebuild.ps1 = prebuild.ps1
 		readme.md = readme.md
 	EndProjectSection
