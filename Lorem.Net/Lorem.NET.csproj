@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <PackageId>Lorem.Universal.NET</PackageId>
+    <Authors>dochoffiday, Tony Richards (trichards57), xfischer</Authors>
+    <Company />
+    <Product>Lorem.Universal.NET</Product>
+    <Description>A .NET library for all things random!</Description>
+    <PackageLicenseUrl>https://github.com/trichards57/Lorem.DNX.NET/blob/master/license.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/trichards57/Lorem.DNX.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/trichards57/Lorem.DNX.NET</RepositoryUrl>
+    <PackageTags>Lorem, Ipsem, random, rng</PackageTags>
+    <Version>2.0.1</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>

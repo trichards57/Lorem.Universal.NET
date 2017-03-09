@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{F7DA0599-C
 		docs\lorem-class.rst = docs\lorem-class.rst
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorem.Universal.NET", "Lorem.Universal.NET\Lorem.Universal.NET.csproj", "{342DEBEE-436C-4E10-A230-0172795E3CBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorem.NET", "Lorem.Net\Lorem.NET.csproj", "{8EE905A6-5B15-4171-9B0F-B73BC23D6515}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +30,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{342DEBEE-436C-4E10-A230-0172795E3CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{342DEBEE-436C-4E10-A230-0172795E3CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{342DEBEE-436C-4E10-A230-0172795E3CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{342DEBEE-436C-4E10-A230-0172795E3CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EE905A6-5B15-4171-9B0F-B73BC23D6515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE905A6-5B15-4171-9B0F-B73BC23D6515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE905A6-5B15-4171-9B0F-B73BC23D6515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE905A6-5B15-4171-9B0F-B73BC23D6515}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
