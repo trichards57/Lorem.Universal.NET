@@ -10,7 +10,6 @@ LoremNET
 Assembly
 --------
 
-* Lorem.DNX.NET
 * Lorem.Universal.NET
 
 Methods
@@ -69,7 +68,7 @@ The code was originally taken from http://stackoverflow.com/a/1483677/234132.
 Email()
 ~~~~~~~
 
-Returns a random email address of the type random1@random2.com  This does not
+Returns a random email address of the type random1@random2.com.  This does not
 randomise the top level domain.
 
 Enum<TEnum>()
@@ -103,3 +102,12 @@ max
 
 The code was originally taken from http://stackoverflow.com/a/6651661/234132
 
+Paragraph(int wordCount, int sentenceCount)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a random paragraph with *sentenceCount* sentences and *wordCount* words per sentence.
+
+wordCount
+  The number of words per sentence
+sentenceCount
+  The number of sentences
