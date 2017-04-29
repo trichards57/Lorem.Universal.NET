@@ -1,4 +1,4 @@
-version: 2.0.{build}
+version: 2.1.{build}
 image: Visual Studio 2017 RC
 skip_tags: true
 configuration:
@@ -31,3 +31,13 @@ deploy:
   prerelease: false
   on:
     branch: master
+- provider: GitHub
+  release: Lorem-Universal-NET-v$(appveyor_build_version)-beta
+  description: $(appveyor_repo_commit_message)
+  auth_token:
+    secure: jtEqWpP0mI7h+Bapo8DhdJDSQxUV60pDwfQqLdFZqpHV4LqcCEmrcTmNMf6pu9bl
+  artifact: /.*\.nupkg/
+  draft: false
+  prerelease: true
+  on:
+    branch: dev

@@ -107,6 +107,20 @@ namespace LoremNET
         }
 
         /// <summary>
+        /// Creates a random integer.
+        /// </summary>
+        /// <param name="min">The minimum integer.</param>
+        /// <param name="max">The maximum integer.</param>
+        /// <returns>A random number between min and max.</returns>
+        /// <remarks>
+        /// This is just a wrapper around RandomHelper.Instance.Next to make it slightly more intuitive.
+        /// </remarks>
+        public static int Integer(int min, int max)
+        {
+            return RandomHelper.Instance.Next(min, max);
+        }
+
+        /// <summary>
         /// Creates a random lowercase letter.
         /// </summary>
         /// <returns>A random character between 'a' and 'z' (inclusive)</returns>
