@@ -25,7 +25,7 @@ deploy:
   release: Lorem-Universal-NET-v$(appveyor_build_version)
   description: $(appveyor_repo_commit_message)
   auth_token:
-    secure: jtEqWpP0mI7h+Bapo8DhdJDSQxUV60pDwfQqLdFZqpHV4LqcCEmrcTmNMf6pu9bl
+    secure: B6smjWT15M4dSVKe+bbWP4aZ/sno0gEKqS9sow6ugbMWBx/q/qeJrmPQuJFH4qvi
   artifact: /.*\.nupkg/
   draft: false
   prerelease: false
@@ -35,7 +35,7 @@ deploy:
   release: Lorem-Universal-NET-v$(appveyor_build_version)-beta
   description: $(appveyor_repo_commit_message)
   auth_token:
-    secure: jtEqWpP0mI7h+Bapo8DhdJDSQxUV60pDwfQqLdFZqpHV4LqcCEmrcTmNMf6pu9bl
+    secure: B6smjWT15M4dSVKe+bbWP4aZ/sno0gEKqS9sow6ugbMWBx/q/qeJrmPQuJFH4qvi
   artifact: /.*\.nupkg/
   draft: false
   prerelease: true
