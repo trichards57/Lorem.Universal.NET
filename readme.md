@@ -3,8 +3,8 @@ Lorem.NET for netstandard
 
 A .NET library for all things random!  Updated to use a netstandard library (to give as wide support as possible).
 
-[![Build status](https://ci.appveyor.com/api/projects/status/81i490v2mfq1h0gw/branch/master?svg=true)](https://ci.appveyor.com/project/trichards57/lorem-dnx-net/branch/master) 
-[![Documentation Status](http://readthedocs.org/projects/loremdnxnet/badge/?version=docs)](http://loremdnxnet.readthedocs.io/en/docs/?badge=docs)
+[![Build status](https://ci.appveyor.com/api/projects/status/81i490v2mfq1h0gw/branch/master?svg=true)](https://ci.appveyor.com/project/trichards57/lorem-universal-net/branch/master)
+[![Documentation Status](https://readthedocs.org/projects/loremdnxnet/badge/?version=latest)](https://loremdnxnet.readthedocs.io/en/latest/?badge=latest)
 [![NuGet](https://img.shields.io/nuget/v/Lorem.Universal.NET.svg?maxAge=2592000)](https://www.nuget.org/packages/Lorem.Universal.NET/)
 
 

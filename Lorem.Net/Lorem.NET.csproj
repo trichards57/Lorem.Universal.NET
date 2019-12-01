@@ -7,9 +7,9 @@
     <Company />
     <Product>Lorem.Universal.NET</Product>
     <Description>A .NET library for all things random!</Description>
-    <PackageLicenseUrl>https://github.com/trichards57/Lorem.DNX.NET/blob/master/license.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/trichards57/Lorem.DNX.NET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/trichards57/Lorem.DNX.NET</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/trichards57/Lorem.Universal.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/trichards57/Lorem.Universal.NET</RepositoryUrl>
     <PackageTags>Lorem, Ipsem, random, rng</PackageTags>
     <Version>2.0.0</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -18,6 +18,8 @@
     <PackageReleaseNotes>$commitMsg
 
 $commitMsgExtended</PackageReleaseNotes>
+    <PackageLicenseFile>license.md</PackageLicenseFile>
+    <Copyright>Copyright (c) 2015 dochoffiday, xfischer. Copyright (c) 2016-2019 Tony Richards.</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -27,5 +29,12 @@ $commitMsgExtended</PackageReleaseNotes>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.0\.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\license.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
