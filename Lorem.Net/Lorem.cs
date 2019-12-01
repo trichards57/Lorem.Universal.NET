@@ -8,7 +8,7 @@ namespace LoremNET
     /// <summary>
     /// Class to generate random values of various types.
     /// </summary>
-    public class Lorem
+    public static class Lorem
     {
         /// <summary>
         /// Returns true <paramref name="successes"/> times out of <paramref name="attempts"/>.
