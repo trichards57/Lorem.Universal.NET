@@ -6,7 +6,7 @@ namespace LoremNET
     /// <summary>
     /// Class used to provide random text.
     /// </summary>
-    public class Source
+    public static class Source
     {
         /// <summary>
         /// The source string used to produce reasonable random text.

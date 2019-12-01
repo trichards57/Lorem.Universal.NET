@@ -1,5 +1,5 @@
-version: 2.1.{build}
-image: Visual Studio 2017
+version: 3.0.{build}
+image: Visual Studio 2019
 skip_tags: true
 configuration:
 - Release
@@ -18,14 +18,14 @@ deploy:
   on:
     branch: master
   api_key:
-    secure: 5mSnG9xdZ10yKDFhtI0w8p6aaj0m5ULQvVwlSGuzR2/D6LjQftisSQo3J6DYvZfw
+    secure: 6iDwjn2nT7lbeEqrDcnkxGbFgQo5A5KNtakatRdgwXS0RWKTCrCdZp/FLEqcXTim
   skip_symbols: false
   artifact: /.*\.nupkg/
 - provider: GitHub
   release: Lorem-Universal-NET-v$(appveyor_build_version)
   description: $(appveyor_repo_commit_message)
   auth_token:
-    secure: jtEqWpP0mI7h+Bapo8DhdJDSQxUV60pDwfQqLdFZqpHV4LqcCEmrcTmNMf6pu9bl
+    secure: B6smjWT15M4dSVKe+bbWP4aZ/sno0gEKqS9sow6ugbMWBx/q/qeJrmPQuJFH4qvi
   artifact: /.*\.nupkg/
   draft: false
   prerelease: false
@@ -35,7 +35,7 @@ deploy:
   release: Lorem-Universal-NET-v$(appveyor_build_version)-beta
   description: $(appveyor_repo_commit_message)
   auth_token:
-    secure: jtEqWpP0mI7h+Bapo8DhdJDSQxUV60pDwfQqLdFZqpHV4LqcCEmrcTmNMf6pu9bl
+    secure: B6smjWT15M4dSVKe+bbWP4aZ/sno0gEKqS9sow6ugbMWBx/q/qeJrmPQuJFH4qvi
   artifact: /.*\.nupkg/
   draft: false
   prerelease: true
