@@ -18,7 +18,7 @@ deploy:
   on:
     branch: master
   api_key:
-    secure: 5mSnG9xdZ10yKDFhtI0w8p6aaj0m5ULQvVwlSGuzR2/D6LjQftisSQo3J6DYvZfw
+    secure: 6iDwjn2nT7lbeEqrDcnkxGbFgQo5A5KNtakatRdgwXS0RWKTCrCdZp/FLEqcXTim
   skip_symbols: false
   artifact: /.*\.nupkg/
 - provider: GitHub
