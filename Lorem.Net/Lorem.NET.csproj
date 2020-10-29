@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
     <PackageId>Lorem.Universal.NET</PackageId>
     <Authors>dochoffiday, Tony Richards (trichards57), xfischer</Authors>
     <Company />
@@ -15,9 +15,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <AssemblyVersion>2.0.0</AssemblyVersion>
     <FileVersion>2.0.0</FileVersion>
-    <PackageReleaseNotes>$commitMsg
-
-$commitMsgExtended</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      $commitMsg
+    </PackageReleaseNotes>
     <PackageLicenseFile>license.md</PackageLicenseFile>
     <Copyright>Copyright (c) 2015 dochoffiday, xfischer. Copyright (c) 2016-2019 Tony Richards.</Copyright>
   </PropertyGroup>
@@ -36,5 +36,4 @@ $commitMsgExtended</PackageReleaseNotes>
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
 </Project>
