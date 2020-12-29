@@ -16,8 +16,13 @@ namespace LoremNET
         /// <param name="successes">The number of successes per <paramref name="attempts"/>.</param>
         /// <param name="attempts">The attempts.</param>
         /// <returns><c>true</c> on success, otherwise <c>false</c></returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="successes"/> must be greater than or equal to 0 and <paramref name="attempts"/> must be greater than 0</exception>
-        /// <exception cref="ArgumentException"><paramref name="successes"/> is greater than <paramref name="attempts"/></exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="successes"/> must be greater than or equal to 0 and <paramref
+        /// name="attempts"/> must be greater than 0
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="successes"/> is greater than <paramref name="attempts"/>
+        /// </exception>
         public static bool Chance(int successes, int attempts)
         {
             if (successes < 0)
@@ -61,8 +66,10 @@ namespace LoremNET
         /// <param name="min">The minimum date.</param>
         /// <param name="max">The maximum date.</param>
         /// <returns>A DateTime</returns>
-        /// <remarks>From http://stackoverflow.com/a/1483677/234132 </remarks>
-        /// <exception cref="ArgumentException"><paramref name="max"/> must be greater than or equal to <paramref name="min"/></exception>
+        /// <remarks>From http://stackoverflow.com/a/1483677/234132</remarks>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="max"/> must be greater than or equal to <paramref name="min"/>
+        /// </exception>
         public static DateTime DateTime(DateTime min, DateTime max)
         {
             if (max < min)
@@ -103,8 +110,10 @@ namespace LoremNET
         /// </summary>
         /// <param name="digits">The number of digits required.</param>
         /// <returns>A string created using the 'X' format string</returns>
-        /// <remarks>From http://stackoverflow.com/a/1054087/234132 </remarks>
-        /// <exception cref="ArgumentException"><paramref name="digits"/> must be greater than 0</exception>
+        /// <remarks>From http://stackoverflow.com/a/1054087/234132</remarks>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="digits"/> must be greater than 0
+        /// </exception>
         public static string HexNumber(int digits)
         {
             if (digits <= 0)
@@ -129,7 +138,9 @@ namespace LoremNET
         /// <remarks>
         /// This is just a wrapper around RandomHelper.Instance.Next to make it slightly more intuitive.
         /// </remarks>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="max"/> must be greater than or equal to <paramref name="min"/></exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="max"/> must be greater than or equal to <paramref name="min"/>
+        /// </exception>
         public static int Integer(int min, int max)
         {
             if (max < min)
@@ -154,8 +165,10 @@ namespace LoremNET
         /// <param name="min">The minimum number.</param>
         /// <param name="max">The maximum number.</param>
         /// <returns>A long integer</returns>
-        /// <remarks>From http://stackoverflow.com/a/6651661/234132 </remarks>
-        /// <exception cref="ArgumentException"><paramref name="max"/> must be greater than or equal to <paramref name="min"/></exception>
+        /// <remarks>From http://stackoverflow.com/a/6651661/234132</remarks>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="max"/> must be greater than or equal to <paramref name="min"/>
+        /// </exception>
         public static long Number(long min, long max)
         {
             if (max < min)
@@ -169,12 +182,15 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates a random paragraph with <paramref name="sentenceCount"/> sentences and <paramref name="wordCount"/> words per sentence.
+        /// Creates a random paragraph with <paramref name="sentenceCount"/> sentences and <paramref
+        /// name="wordCount"/> words per sentence.
         /// </summary>
         /// <param name="wordCount">The number of words per sentence.</param>
         /// <param name="sentenceCount">The number of sentences.</param>
         /// <returns>A string containing the generated paragraph</returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="wordCount"/> and <paramref name="sentenceCount"/> must be greater than 0</exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="wordCount"/> and <paramref name="sentenceCount"/> must be greater than 0
+        /// </exception>
         public static string Paragraph(int wordCount, int sentenceCount)
         {
             if (wordCount < 1)
@@ -186,14 +202,20 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates a random paragraph with <paramref name="sentenceCount"/> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+        /// Creates a random paragraph with <paramref name="sentenceCount"/> sentences and between
+        /// <paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> words per sentence.
         /// </summary>
         /// <param name="wordCountMin">The minimum number of words per sentence.</param>
         /// <param name="wordCountMax">The maximum number of words per sentence.</param>
         /// <param name="sentenceCount">The number of sentences.</param>
         /// <returns>A string containing the generated paragraph</returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="wordCountMin"/>, <paramref name="wordCountMax"/> and <paramref name="sentenceCount"/> must be greater than 0</exception>
-        /// <exception cref="ArgumentException"><paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/></exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/> and <paramref
+        /// name="sentenceCount"/> must be greater than 0
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/>
+        /// </exception>
         public static string Paragraph(int wordCountMin, int wordCountMax, int sentenceCount)
         {
             if (wordCountMin < 1)
@@ -210,7 +232,9 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates a random paragraph with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+        /// Creates a random paragraph with between <paramref name="sentenceCountMin"/> and
+        /// <paramref name="sentenceCountMax"/> sentences and between <paramref
+        /// name="wordCountMin"/> and <paramref name="wordCountMax"/> words per sentence.
         /// </summary>
         /// <param name="wordCountMin">The minimum number of words per sentence.</param>
         /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -218,12 +242,14 @@ namespace LoremNET
         /// <param name="sentenceCountMax">The maximum number of sentences.</param>
         /// <returns>A string containing the generated paragraph</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///   <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref name="sentenceCountMin"/> and <paramref name="sentenceCountMax"/>
-        ///   must all be greater than 0.
+        /// <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref
+        /// name="sentenceCountMin"/> and <paramref name="sentenceCountMax"/> must all be greater
+        /// than 0.
         /// </exception>
         /// <exception cref="ArgumentException">
-        ///   <paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/>
-        ///   and <paramref name="sentenceCountMax"/> must be greater than or equal to <paramref name="sentenceCountMin"/>
+        /// <paramref name="wordCountMax"/> must be greater than or equal to <paramref
+        /// name="wordCountMin"/> and <paramref name="sentenceCountMax"/> must be greater than or
+        /// equal to <paramref name="sentenceCountMin"/>
         /// </exception>
         public static string Paragraph(int wordCountMin, int wordCountMax, int sentenceCountMin, int sentenceCountMax)
         {
@@ -248,15 +274,16 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates <paramref name="paragraphCount"/> paragraphs with <paramref name="sentenceCount"/> sentences and <paramref name="wordCount"/> words per sentence.
+        /// Creates <paramref name="paragraphCount"/> paragraphs with <paramref
+        /// name="sentenceCount"/> sentences and <paramref name="wordCount"/> words per sentence.
         /// </summary>
         /// <param name="paragraphCount">The number of paragraphcs</param>
         /// <param name="wordCount">The number of words per sentence.</param>
         /// <param name="sentenceCount">The number of sentences.</param>
         /// <returns>An IEnumerable containing the generated paragraphs</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///   <paramref name="wordCount"/>, <paramref name="sentenceCount"/> and <paramref name="paragraphCount"/>
-        ///   must all be greater than 0.
+        /// <paramref name="wordCount"/>, <paramref name="sentenceCount"/> and <paramref
+        /// name="paragraphCount"/> must all be greater than 0.
         /// </exception>
         public static IEnumerable<string> Paragraphs(int wordCount, int sentenceCount, int paragraphCount)
         {
@@ -271,7 +298,9 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates <paramref name="paragraphCount"/> paragraphs with <paramref name="sentenceCount"/> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+        /// Creates <paramref name="paragraphCount"/> paragraphs with <paramref
+        /// name="sentenceCount"/> sentences and between <paramref name="wordCountMin"/> and
+        /// <paramref name="wordCountMax"/> words per sentence.
         /// </summary>
         /// <param name="wordCountMin">The minimum number of words per sentence.</param>
         /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -279,10 +308,12 @@ namespace LoremNET
         /// <param name="paragraphCount">The paragraph count.</param>
         /// <returns>An IEnumerable containing the generated paragraphs</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///   <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref name="sentenceCount"/> and <paramref name="paragraphCount"/>
-        ///   must all be greater than 0.
+        /// <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref
+        /// name="sentenceCount"/> and <paramref name="paragraphCount"/> must all be greater than 0.
         /// </exception>
-        /// <exception cref="ArgumentException"><paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/></exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/>
+        /// </exception>
         public static IEnumerable<string> Paragraphs(int wordCountMin, int wordCountMax, int sentenceCount, int paragraphCount)
         {
             if (wordCountMin < 1)
@@ -301,7 +332,9 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates <paramref name="paragraphCount"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+        /// Creates <paramref name="paragraphCount"/> paragraphs with between <paramref
+        /// name="sentenceCountMin"/> and <paramref name="sentenceCountMax"/> sentences and between
+        /// <paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> words per sentence.
         /// </summary>
         /// <param name="wordCountMin">The minimum number of words per sentence.</param>
         /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -310,12 +343,14 @@ namespace LoremNET
         /// <param name="paragraphCount">The paragraph count.</param>
         /// <returns>An IEnumerable containing the generated paragraphs</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///   <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref name="sentenceCountMin"/>, <paramref name="sentenceCountMax"/>
-        ///   and <paramref name="paragraphCount"/> must all be greater than 0.
+        /// <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref
+        /// name="sentenceCountMin"/>, <paramref name="sentenceCountMax"/> and <paramref
+        /// name="paragraphCount"/> must all be greater than 0.
         /// </exception>
         /// <exception cref="ArgumentException">
-        ///   <paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/>
-        ///   and <paramref name="sentenceCountMax"/> must be greater than or equal to <paramref name="sentenceCountMin"/>
+        /// <paramref name="wordCountMax"/> must be greater than or equal to <paramref
+        /// name="wordCountMin"/> and <paramref name="sentenceCountMax"/> must be greater than or
+        /// equal to <paramref name="sentenceCountMin"/>
         /// </exception>
         public static IEnumerable<string> Paragraphs(int wordCountMin, int wordCountMax, int sentenceCountMin, int sentenceCountMax, int paragraphCount)
         {
@@ -339,7 +374,10 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates between <paramref name="paragraphCountMin"/> and <paramref name="paragraphCountMin"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+        /// Creates between <paramref name="paragraphCountMin"/> and <paramref
+        /// name="paragraphCountMin"/> paragraphs with between <paramref name="sentenceCountMin"/>
+        /// and <paramref name="sentenceCountMax"/> sentences and between <paramref
+        /// name="wordCountMin"/> and <paramref name="wordCountMax"/> words per sentence.
         /// </summary>
         /// <param name="wordCountMin">The minimum number of words per sentence.</param>
         /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -349,13 +387,16 @@ namespace LoremNET
         /// <param name="paragraphCountMax">The maximum number of paragraphs.</param>
         /// <returns>An IEnumerable containing the generated paragraphs</returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///   <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref name="sentenceCountMin"/>, <paramref name="sentenceCountMax"/>,
-        ///   <paramref name="paragraphCountMin"/> and <paramref name="paragraphCountMax"/> must all be greater than 0.
+        /// <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref
+        /// name="sentenceCountMin"/>, <paramref name="sentenceCountMax"/>, <paramref
+        /// name="paragraphCountMin"/> and <paramref name="paragraphCountMax"/> must all be greater
+        /// than 0.
         /// </exception>
         /// <exception cref="ArgumentException">
-        ///   <paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/>,
-        ///   <paramref name="sentenceCountMax"/> must be greater than or equal to <paramref name="sentenceCountMin"/>
-        ///   and <paramref name="paragraphCountMax"/> must be greater than or equal to <paramref name="paragraphCountMin"/>
+        /// <paramref name="wordCountMax"/> must be greater than or equal to <paramref
+        /// name="wordCountMin"/>, <paramref name="sentenceCountMax"/> must be greater than or equal
+        /// to <paramref name="sentenceCountMin"/> and <paramref name="paragraphCountMax"/> must be
+        /// greater than or equal to <paramref name="paragraphCountMin"/>
         /// </exception>
         public static IEnumerable<string> Paragraphs(int wordCountMin, int wordCountMax, int sentenceCountMin, int sentenceCountMax, int paragraphCountMin, int paragraphCountMax)
         {
@@ -379,7 +420,9 @@ namespace LoremNET
             if (paragraphCountMax < paragraphCountMin)
                 throw new ArgumentException(nameof(paragraphCountMax), "paragraphCountMax is less than paragraphCountMin");
 
-            return Enumerable.Range(0, RandomHelper.Instance.Next(paragraphCountMin, paragraphCountMax)).Select(p => Paragraph(wordCountMin, wordCountMax, sentenceCountMin, sentenceCountMax)).ToArray();
+            return Enumerable
+                .Range(0, RandomHelper.Instance.Next(paragraphCountMin, paragraphCountMax))
+                .Select(p => Paragraph(wordCountMin, wordCountMax, sentenceCountMin, sentenceCountMax));
         }
 
         /// <summary>
@@ -407,7 +450,9 @@ namespace LoremNET
         /// </summary>
         /// <param name="wordCount">The word count for the sentence.</param>
         /// <returns>A string containing the generated sentence</returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="wordCount"/> must be greater than 0</exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="wordCount"/> must be greater than 0
+        /// </exception>
         public static string Sentence(int wordCount)
         {
             if (wordCount < 1)
@@ -417,13 +462,18 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates a random sentence with between <paramref name="wordCountMin"/> and <paramref name="wordCountMax" /> words.
+        /// Creates a random sentence with between <paramref name="wordCountMin"/> and <paramref
+        /// name="wordCountMax"/> words.
         /// </summary>
         /// <param name="wordCountMin">The minimum word count for the sentence.</param>
         /// <param name="wordCountMax">The maximum word count for the sentence.</param>
         /// <returns>A string containing the generated words</returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> must be greater than 0</exception>
-        /// <exception cref="ArgumentException"><paramref name="wordCountMax"/> is less than <paramref name="wordCountMin"/></exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> must be greater than 0
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="wordCountMax"/> is less than <paramref name="wordCountMin"/>
+        /// </exception>
         public static string Sentence(int wordCountMin, int wordCountMax)
         {
             if (wordCountMin < 1)
@@ -441,9 +491,13 @@ namespace LoremNET
         /// </summary>
         /// <param name="wordCount">The number of words to generate.</param>
         /// <param name="uppercaseFirstLetter">if set to <c>true</c>, capitalises the first letter.</param>
-        /// <param name="includePunctuation">if set to <c>true</c>, includes punctuation in the string.</param>
+        /// <param name="includePunctuation">
+        /// if set to <c>true</c>, includes punctuation in the string.
+        /// </param>
         /// <returns>A string containing the generated words</returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="wordCount"/> must be greater than 0</exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="wordCount"/> must be greater than 0
+        /// </exception>
         public static string Words(int wordCount, bool uppercaseFirstLetter = true, bool includePunctuation = false)
         {
             if (wordCount < 1)
@@ -453,15 +507,22 @@ namespace LoremNET
         }
 
         /// <summary>
-        /// Creates a string containing between <paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> words.
+        /// Creates a string containing between <paramref name="wordCountMin"/> and <paramref
+        /// name="wordCountMax"/> words.
         /// </summary>
         /// <param name="wordCountMin">The minimum number of words.</param>
         /// <param name="wordCountMax">The maximum number of words.</param>
         /// <param name="uppercaseFirstLetter">if set to <c>true</c> capitalises the first letter.</param>
-        /// <param name="includePunctuation">if set to <c>true</c> includes punctuation in the string.</param>
+        /// <param name="includePunctuation">
+        /// if set to <c>true</c> includes punctuation in the string.
+        /// </param>
         /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> must be greater than 0</exception>
-        /// <exception cref="ArgumentException"><paramref name="wordCountMax"/> is less than <paramref name="wordCountMin"/></exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> must be greater than 0
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="wordCountMax"/> is less than <paramref name="wordCountMin"/>
+        /// </exception>
         public static string Words(int wordCountMin, int wordCountMax, bool uppercaseFirstLetter = true, bool includePunctuation = false)
         {
             if (wordCountMin < 1)
