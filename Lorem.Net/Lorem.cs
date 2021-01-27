@@ -243,7 +243,6 @@ namespace LoremNET
 
             var source = string.Join(" ", Enumerable.Range(0, RandomHelper.Instance.Next(sentenceCountMin, sentenceCountMax)).Select(x => Sentence(wordCountMin, wordCountMax)));
 
-            //remove traililng space
             return source.Trim();
         }
 
@@ -379,7 +378,7 @@ namespace LoremNET
             if (paragraphCountMax < paragraphCountMin)
                 throw new ArgumentException(nameof(paragraphCountMax), "paragraphCountMax is less than paragraphCountMin");
 
-            return Enumerable.Range(0, RandomHelper.Instance.Next(paragraphCountMin, paragraphCountMax)).Select(p => Paragraph(wordCountMin, wordCountMax, sentenceCountMin, sentenceCountMax)).ToArray();
+            return Enumerable.Range(0, RandomHelper.Instance.Next(paragraphCountMin, paragraphCountMax)).Select(p => Paragraph(wordCountMin, wordCountMax, sentenceCountMin, sentenceCountMax));
         }
 
         /// <summary>

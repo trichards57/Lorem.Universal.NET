@@ -30,8 +30,13 @@ string sentence = LoremNET.Lorem.Sentence(5, 10);
 string paragraph = LoremNET.Lorem.Paragraph(5, 6, 4, 10);
 
 // paragraphs is an array of paragraphs; this method will have eight to nine words per sentence, four to five sentences per paragraph, and one to three paragraphs:
-string[] paragraphs = LoremNET.Lorem.Paragraphs(8, 9, 4, 5, 1, 3);
+IEnumerable<string> paragraphs = LoremNET.Lorem.Paragraphs(8, 9, 4, 5, 1, 3);
 ```
+
+Breaking Change : As of v4.0, anything returning an IEnumerable can no-longer be relied on to return a stable result over multiple iterations.  Technically IEnumerable<T> doesn't promise
+this anyway, but previous version's implementation did produce a repeatable result.
+
+Thanks to BaileyMillerSSI for pointing out the problem with the previous implementation and large results.
 
 ### Extras
 
