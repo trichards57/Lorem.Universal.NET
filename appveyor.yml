@@ -7,26 +7,34 @@ nuget:
   account_feed: true
   project_feed: true
 before_build:
-- ps: .\prebuild.ps1
 - cmd: dotnet restore
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '4.0.0'
+  file_version: '{version}'
+  informational_version: '{version}'
 build:
   verbosity: minimal
 artifacts:
 - path: '**\*.nupkg'
+- path: '**\*.snupkg'
 deploy:
 - provider: NuGet
   on:
     branch: master
   api_key:
-    secure: 6iDwjn2nT7lbeEqrDcnkxGbFgQo5A5KNtakatRdgwXS0RWKTCrCdZp/FLEqcXTim
+    secure: rqiuU99+N0SgoiauA3nzo1iwyM765dRoGY8twPzMiILm95ZeQXjPr3HO81BvmSv7
   skip_symbols: false
-  artifact: /.*\.nupkg/
+  artifact: /.*(\.|\.s)nupkg/
 - provider: GitHub
   release: Lorem-Universal-NET-v$(appveyor_build_version)
   description: $(appveyor_repo_commit_message)
   auth_token:
     secure: B6smjWT15M4dSVKe+bbWP4aZ/sno0gEKqS9sow6ugbMWBx/q/qeJrmPQuJFH4qvi
-  artifact: /.*\.nupkg/
+  artifact: /.*(\.|\.s)nupkg/
   draft: false
   prerelease: false
   on:
@@ -36,7 +44,7 @@ deploy:
   description: $(appveyor_repo_commit_message)
   auth_token:
     secure: B6smjWT15M4dSVKe+bbWP4aZ/sno0gEKqS9sow6ugbMWBx/q/qeJrmPQuJFH4qvi
-  artifact: /.*\.nupkg/
+  artifact: /.*(\.|\.s)nupkg/
   draft: false
   prerelease: true
   on:
