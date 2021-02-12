@@ -13,7 +13,7 @@
     <PackageTags>Lorem, Ipsem, random, rng</PackageTags>
     <Version>2.1.0</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
     <FileVersion>2.0.0</FileVersion>
     <PackageReleaseNotes>$commitMsg</PackageReleaseNotes>
     <PackageLicenseFile>license.md</PackageLicenseFile>

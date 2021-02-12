@@ -7,8 +7,15 @@ nuget:
   account_feed: true
   project_feed: true
 before_build:
-- ps: .\prebuild.ps1
 - cmd: dotnet restore
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '4.0.0'
+  file_version: '{version}'
+  informational_version: '{version}'
 build:
   verbosity: minimal
 artifacts:
