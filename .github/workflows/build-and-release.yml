@@ -50,8 +50,15 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
-      - name: Pack NuGet package
-        run: dotnet pack --configuration Release --no-build --output ./artifacts
+      - name: Extract version from tag
+        id: version
+        run: |
+          $ver = "${{ github.ref_name }}".TrimStart("v")
+          echo "version=$ver" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Pack NuGet package with injected version
+        run: dotnet pack --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.version.outputs.version }}
 
       - name: Identify NuGet package
         id: find_package
@@ -79,3 +86,4 @@ jobs:
           prerelease: ${{ steps.release_type.outputs.prerelease }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
