@@ -1,39 +1,58 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;net461</TargetFrameworks>
-    <PackageId>Lorem.Universal.NET</PackageId>
-    <Authors>dochoffiday, Tony Richards (trichards57), xfischer</Authors>
-    <Company />
-    <Product>Lorem.Universal.NET</Product>
-    <Description>A .NET library for all things random!</Description>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/trichards57/Lorem.Universal.NET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/trichards57/Lorem.Universal.NET</RepositoryUrl>
-    <PackageTags>Lorem, Ipsem, random, rng</PackageTags>
-    <Version>2.1.0</Version>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <AssemblyVersion>4.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0</FileVersion>
-    <PackageReleaseNotes>$commitMsg</PackageReleaseNotes>
-    <PackageLicenseFile>license.md</PackageLicenseFile>
-    <Copyright>Copyright (c) 2015 dochoffiday, xfischer. Copyright (c) 2016-2019 Tony Richards.</Copyright>
-    <DocumentationFile>$(TargetDir)Lorem.NET.xml</DocumentationFile>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>LoremStrongNameKey.snk</AssemblyOriginatorKeyFile>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(APPVEYOR)' == 'True'">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="..\license.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net9.0;net8.0</TargetFrameworks>
+		<PackageId>Lorem.Universal.NET</PackageId>
+		<Authors>dochoffiday, Tony Richards (trichards57), xfischer</Authors>
+		<Company />
+		<Product>Lorem.Universal.NET</Product>
+		<Description>A .NET library for all things random!</Description>
+		<PackageLicenseUrl></PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/trichards57/Lorem.Universal.NET</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/trichards57/Lorem.Universal.NET</RepositoryUrl>
+		<PackageTags>Lorem, Ipsem, random, rng</PackageTags>
+		<Version>2.1.0</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<AssemblyVersion>4.0.0.0</AssemblyVersion>
+		<FileVersion>2.0.0</FileVersion>
+		<PackageLicenseFile>license.md</PackageLicenseFile>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<Copyright>Copyright (c) 2015 dochoffiday, xfischer. Copyright (c) 2016-2025 Tony Richards.</Copyright>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>LoremStrongNameKey.snk</AssemblyOriginatorKeyFile>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<RootNamespace>LoremNET</RootNamespace>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\license.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\readme.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="StyleCop.Analyzers.Unstable" Version="1.2.0.556">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 </Project>

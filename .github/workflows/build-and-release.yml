@@ -1,0 +1,89 @@
+name: Build and Release
+
+on:
+  push:
+    branches-ignore:
+      - master
+    tags:
+      - 'v*'
+  pull_request:
+
+jobs:
+  build:
+    if: github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/')
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          $ver = "${{ github.ref_name }}".TrimStart("v")
+          echo "version=$ver" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Pack NuGet package with injected version
+        run: dotnet pack --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.version.outputs.version }}
+
+      - name: Identify NuGet package
+        id: find_package
+        run: |
+          $pkg = Get-ChildItem -Path artifacts -Filter *.nupkg | Select-Object -First 1
+          echo "nupkg_path=$($pkg.FullName)" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Determine release type (pre-release or stable)
+        id: release_type
+        run: |
+          if ("${{ github.ref_name }}" -match "-beta") {
+            echo "prerelease=true" >> $env:GITHUB_OUTPUT
+          } else {
+            echo "prerelease=false" >> $env:GITHUB_OUTPUT
+          }
+        shell: pwsh
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          files: ${{ steps.find_package.outputs.nupkg_path }}
+          prerelease: ${{ steps.release_type.outputs.prerelease }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
