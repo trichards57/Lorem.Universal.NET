@@ -1,4 +1,11 @@
-﻿using System;
+﻿// <copyright file="RandomHelper.cs" company="PlaceholderCompany">
+// Copyright (c) 2015 dochoffiday, xfischer
+// Copyright (c) 2016-2025 Tony Richards
+//
+// This source code is licensed under the MIT license. See LICENSE file for details.
+// </copyright>
+
+using System;
 using System.Threading;
 
 namespace LoremNET
@@ -7,7 +14,7 @@ namespace LoremNET
     /// A thread-safe helper class to get an instance of Random.
     /// </summary>
     /// <remarks>
-    /// From http://stackoverflow.com/a/1785821/234132
+    /// From http://stackoverflow.com/a/1785821/234132.
     /// </remarks>
     public static class RandomHelper
     {
@@ -15,7 +22,7 @@ namespace LoremNET
         private static Random _rng;
 
         /// <summary>
-        /// The seed used for each instance of Random
+        /// The seed used for each instance of Random.
         /// </summary>
         private static int _seedCounter = new Random().Next();
 
@@ -29,7 +36,11 @@ namespace LoremNET
         {
             get
             {
-                if (_rng != null) return _rng;
+                if (_rng != null)
+                {
+                    return _rng;
+                }
+
                 var seed = Interlocked.Increment(ref _seedCounter);
                 _rng = new Random(seed);
                 return _rng;
