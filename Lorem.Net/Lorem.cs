@@ -31,7 +31,7 @@ public static class Lorem
         ArgumentOutOfRangeException.ThrowIfLessThan(attempts, 1);
         ArgumentOutOfRangeException.ThrowIfGreaterThan(successes, attempts);
 
-        var number = System.Random.Shared.Next(1, attempts);
+        var number = System.Random.Shared.Next(1, attempts + 1);
 
         return number <= successes;
     }
