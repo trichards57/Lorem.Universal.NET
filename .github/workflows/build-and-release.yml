@@ -48,26 +48,44 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Restore dependencies
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
       - name: Extract version from tag
         id: version
         run: |
-          $ver = "${{ github.ref_name }}".TrimStart("v")
-          echo "version=$ver" >> $env:GITHUB_OUTPUT
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          echo "version=$version" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
-      - name: Pack NuGet package with injected version
-        run: dotnet pack --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.version.outputs.version }}
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Identify NuGet package
+      - name: Build with version injection (creates .nupkg and .snupkg)
+        run: |
+          dotnet build -c Release --no-restore `
+            /p:Version=${{ steps.version.outputs.version }} `
+            /p:AssemblyVersion=${{ steps.version.outputs.version }} `
+            /p:FileVersion=${{ steps.version.outputs.version }} `
+            /p:InformationalVersion=${{ steps.version.outputs.version }}
+        shell: pwsh
+
+      - name: Collect artifacts
+        run: |
+          New-Item -ItemType Directory -Path artifacts
+          Get-ChildItem -Recurse -Filter *.nupkg | Copy-Item -Destination artifacts
+          Get-ChildItem -Recurse -Filter *.snupkg | Copy-Item -Destination artifacts
+        shell: pwsh
+
+      - name: Push packages to NuGet.org
+        run: |
+          dotnet nuget push "./artifacts/*.nupkg" `
+            --api-key ${{ secrets.NUGET_API_KEY }} `
+            --source https://api.nuget.org/v3/index.json `
+            --skip-duplicate
+        shell: pwsh
+
+      - name: Identify .nupkg (non-symbol) file
         id: find_package
         run: |
-          $pkg = Get-ChildItem -Path artifacts -Filter *.nupkg | Select-Object -First 1
+          $pkg = Get-ChildItem -Path artifacts -Filter *.nupkg | Where-Object { $_.Name -notlike "*.symbols.nupkg" } | Select-Object -First 1
           echo "nupkg_path=$($pkg.FullName)" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
