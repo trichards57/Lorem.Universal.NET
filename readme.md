@@ -1,9 +1,9 @@
 Lorem.NET for netstandard
 =========================
 
-A .NET library for all things random!  Updated to use a netstandard library (to give as wide support as possible).
+A .NET library for all things random!  Updated to be a .Net 8 and .Net 9 library.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/81i490v2mfq1h0gw/branch/master?svg=true)](https://ci.appveyor.com/project/trichards57/lorem-universal-net/branch/master)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/trichards57/Lorem.Universal.NET/build-and-release.yml)
 [![Documentation Status](https://readthedocs.org/projects/loremdnxnet/badge/?version=latest)](https://loremdnxnet.readthedocs.io/en/latest/?badge=latest)
 [![NuGet](https://img.shields.io/nuget/v/Lorem.Universal.NET.svg?maxAge=2592000)](https://www.nuget.org/packages/Lorem.Universal.NET/)
 
@@ -33,10 +33,7 @@ string paragraph = LoremNET.Lorem.Paragraph(5, 6, 4, 10);
 IEnumerable<string> paragraphs = LoremNET.Lorem.Paragraphs(8, 9, 4, 5, 1, 3);
 ```
 
-Breaking Change : As of v4.0, anything returning an IEnumerable can no-longer be relied on to return a stable result over multiple iterations.  Technically IEnumerable<T> doesn't promise
-this anyway, but previous version's implementation did produce a repeatable result.
-
-Thanks to BaileyMillerSSI for pointing out the problem with the previous implementation and large results.
+Breaking Change : As of v5.0, support for anything other than .Net 8 and .Net 9 has been removed.
 
 ### Extras
 
@@ -67,8 +64,4 @@ MyEnum value = LoremNET.Lorem.Enum<MyEnum>();
 
 ### RandomHelper
 
-Lorem.NET includes a thread-safe System.Random instance.
-
-```csharp
-int i = LoremNET.RandomHelper.Instance.Next(1, 2);
-```
+RandomHelper has been removed in v5.0, replaced with Random.Shared provided by the framework.
