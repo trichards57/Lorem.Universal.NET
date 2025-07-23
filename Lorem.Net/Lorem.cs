@@ -37,6 +37,40 @@ public static class Lorem
     }
 
     /// <summary>
+    /// Creates a random DateOnly between the given date and now.
+    /// </summary>
+    /// <param name="startYear">The minimum year.</param>
+    /// <param name="startMonth">The minimum month.</param>
+    /// <param name="startDay">The minimum day.</param>
+    /// <returns>A DateOnly.</returns>
+    public static DateOnly DateOnly(int startYear = 1950, int startMonth = 1, int startDay = 1)
+        => DateOnly(new DateOnly(startYear, startMonth, startDay), System.DateOnly.FromDateTime(System.DateTime.Now));
+
+    /// <summary>
+    /// Creates a random DateOnly between the given date and now.
+    /// </summary>
+    /// <param name="min">The minimum date.</param>
+    /// <returns>A DateOnly.</returns>
+    public static DateOnly DateOnly(DateOnly min)
+        => DateOnly(min, System.DateOnly.FromDateTime(System.DateTime.Now));
+
+    /// <summary>
+    /// Creates a random DateOnly between the given minimum and maximum dates.
+    /// </summary>
+    /// <param name="min">The minimum date.</param>
+    /// <param name="max">The maximum date.</param>
+    /// <returns>A DateOnly.</returns>
+    public static DateOnly DateOnly(DateOnly min, DateOnly max)
+    {
+        ArgumentOutOfRangeException.ThrowIfLessThan(max, min);
+
+        var timeSpan = max.ToDateTime(default) - min.ToDateTime(default);
+        var newSpan = TimeSpan.FromDays(System.Random.Shared.Next(0, (int)timeSpan.TotalDays));
+
+        return System.DateOnly.FromDateTime(min.ToDateTime(default) + newSpan);
+    }
+
+    /// <summary>
     /// Creates a random DateTime between the given date and now.
     /// </summary>
     /// <param name="startYear">The minimum year.</param>
@@ -346,6 +380,38 @@ public static class Lorem
         ArgumentOutOfRangeException.ThrowIfLessThan(wordCountMax, wordCountMin);
 
         return $"{Words(wordCountMin, wordCountMax, true, true)}.".Replace(",.", ".").Remove("..");
+    }
+
+    /// <summary>
+    /// Creates a random TimeOnly between the given time and 23:59.
+    /// </summary>
+    /// <param name="startHour">The minimum hour.</param>
+    /// <param name="startMinute">The minimum minute.</param>
+    /// <param name="startSecond">The minimum second.</param>
+    /// <returns>A TimeOnly.</returns>
+    public static TimeOnly TimeOnly(int startHour = 0, int startMinute = 0, int startSecond = 0)
+        => TimeOnly(new TimeOnly(startHour, startMinute, startSecond), new TimeOnly(23, 59));
+
+    /// <summary>
+    /// Creates a random TimeOnly between the given time and 23:59.
+    /// </summary>
+    /// <param name="min">The minimum time.</param>
+    /// <returns>A TimeOnly.</returns>
+    public static TimeOnly TimeOnly(TimeOnly min)
+        => TimeOnly(min, new TimeOnly(23, 59));
+
+    /// <summary>
+    /// Creates a random TimeOnly between the given minimum and maximum times.
+    /// </summary>
+    /// <param name="min">The minimum time.</param>
+    /// <param name="max">The maximum time.</param>
+    /// <returns>A TimeOnly.</returns>
+    public static TimeOnly TimeOnly(TimeOnly min, TimeOnly max)
+    {
+        ArgumentOutOfRangeException.ThrowIfLessThan(max, min);
+        var timeSpan = max.ToTimeSpan() - min.ToTimeSpan();
+        var newSpan = TimeSpan.FromMinutes(System.Random.Shared.Next(0, (int)timeSpan.TotalMinutes));
+        return System.TimeOnly.FromTimeSpan(min.ToTimeSpan() + newSpan);
     }
 
     /// <summary>
