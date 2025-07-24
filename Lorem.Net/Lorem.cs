@@ -304,7 +304,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Returns between <paramref name="paragraphCountMin"/> and <paramref name="paragraphCountMin"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+    /// Returns between <paramref name="paragraphCountMin"/> and <paramref name="paragraphCountMax"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
     /// </summary>
     /// <param name="wordCountMin">The minimum number of words per sentence.</param>
     /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -316,10 +316,8 @@ public static class Lorem
     /// <exception cref="ArgumentOutOfRangeException">
     ///   <paramref name="wordCountMin"/>, <paramref name="wordCountMax"/>, <paramref name="sentenceCountMin"/>, <paramref name="sentenceCountMax"/>,
     ///   <paramref name="paragraphCountMin"/> and <paramref name="paragraphCountMax"/> must all be greater than 0.
-    /// </exception>
-    /// <exception cref="ArgumentException">
     ///   <paramref name="wordCountMax"/> must be greater than or equal to <paramref name="wordCountMin"/>,
-    ///   <paramref name="sentenceCountMax"/> must be greater than or equal to <paramref name="sentenceCountMin"/>
+    ///   <paramref name="sentenceCountMax"/> must be greater than or equal to <paramref name="sentenceCountMin"/>,
     ///   and <paramref name="paragraphCountMax"/> must be greater than or equal to <paramref name="paragraphCountMin"/>.
     /// </exception>
     public static IEnumerable<string> Paragraphs(int wordCountMin, int wordCountMax, int sentenceCountMin, int sentenceCountMax, int paragraphCountMin, int paragraphCountMax)
