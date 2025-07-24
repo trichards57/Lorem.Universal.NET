@@ -35,6 +35,43 @@ Exceptions
 * *attempts* is less than 1
 * *successes* is greater than *attempts*
 
+DateOnly(int startYear = 1950, int startMonth = 1, int startDay = 1)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a random DateOnly between the given date and the current date.
+
+startYear
+  The minimum year (default 1950).
+startMonth
+  The minimum month (default 1).
+startDay
+  The minimum day (default 1).
+
+DateOnly(DateOnly min)
+~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a random DateOnly between the given date and the current date.
+
+min
+  The minimum date.
+
+DateOnly(DateOnly min, DateOnly max)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a random DateOnly between the given minimum and maximum dates.
+
+min
+  The minimum date.
+max
+  The maximum date.
+
+Exceptions
+##########
+
+**ArgumentOutOfRangeException**
+ 
+* *max* is less than *min*.
+
 DateTime(int startYear = 1950, int startMonth = 1, int startDay = 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -77,7 +114,7 @@ The code was originally taken from http://stackoverflow.com/a/1483677/234132.
 Exceptions
 ##########
 
-**ArgumentException**
+**ArgumentOutOfRangeException**
  
 * *max* is less than *min*.
 
@@ -92,13 +129,6 @@ Enum<TEnum>()
 
 Returns a random item from *TEnum*.
 
-Exceptions
-##########
-
-**ArgumentException**
-
-* *TEnum* is not an enum.
-
 HexNumber(int digits)
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -112,49 +142,12 @@ Exceptions
 
 **ArgumentOutOfRangeException**
 
-* *digits* is less than 0.
-
-Integer(int min, int max)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Returns a random integer between *min* and *max*.
-
-min
-  The minimum number to return.
-max
-  The maximum number to return.
-
-Exceptions
-##########
-
-**ArgumentException**
-
-* *max* is less than *min*.
+* *digits* is less or equal to 0.
 
 Letter()
 ~~~~~~~~
 
 Returns a random lowercase character between 'a' and 'z' (inclusive).
-
-
-Number(long min, long max)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Returns a random long integer between *min* and *max*.
-
-min
-  The minimum number to return
-max
-  The maximum number to return
-
-The code was originally taken from http://stackoverflow.com/a/6651661/234132
-
-Exceptions
-##########
-
-**ArgumentException**
-
-* *max* must be greater than or equal to *min*.
 
 Paragraph(int wordCount, int sentenceCount)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,9 +187,6 @@ Exceptions
 * *wordCountMax* must be greater than zero.
 * *wordCountMin* must be greater than zero.
 * *sentenceCount* must be greater than zero.
-
-**ArgumentException**
-
 * *wordCountMax* must be greater than or equal to *wordCountMin*.
 
 Paragraph(int wordCountMin, int wordCountMax, int sentenceCountMin, int sentenceCountMax)
@@ -222,9 +212,6 @@ Exceptions
 * *wordCountMin* must be greater than zero.
 * *sentenceCountMax* must be greater than zero.
 * *sentenceCountMin* must be greater than zero.
-
-**ArgumentException**
-
 * *wordCountMax* must be greater than or equal to *wordCountMin*.
 * *sentenceCountMax* must be greater than or equal to *sentenceCountMin*.
 
@@ -239,6 +226,16 @@ sentenceCount
   The number of sentences
 paragraphCount
   The number of paragraphs
+
+Exceptions
+##########
+
+**ArgumentOutOfRangeException**
+
+* *wordCount* must be greater than 0.
+* *sentenceCount* must be greater than 0.
+* *paragraphCount* must be greater than 0.
+
 
 Paragraphs(int wordCountMin, int wordCountMax, int sentenceCount, int paragraphCount)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -257,8 +254,12 @@ paragraphCount
 Exceptions
 ##########
 
-**ArgumentException**
+**ArgumentOutOfRangeException**
 
+* *wordCountMin* must be greater than 0.
+* *wordCountMax* must be greater than 0.
+* *sentenceCount* must be greater than 0.
+* *paragraphCount* must be greater than 0.
 * *wordCountMax* must be greater than or equal to *wordCountMin*.
 
 Paragraphs(int wordCountMin, int wordCountMax, int sentenceCountMin, int sentenceCountMax, int paragraphCount)
@@ -282,6 +283,11 @@ Exceptions
 
 **ArgumentException**
 
+* *wordCountMin* must be greater than 0.
+* *wordCountMax* must be greater than 0.
+* *sentenceCountMin* must be greater than 0.
+* *sentenceCountMax* must be greater than 0.
+* *paragraphCount* must be greater than 0.
 * *wordCountMax* must be greater than or equal to *wordCountMin*.
 * *sentenceCountMax* must be greater than or equal to *sentenceCountMin*.
 
@@ -306,8 +312,14 @@ paragraphCountMax
 Exceptions
 ##########
 
-**ArgumentException**
+**ArgumentOutOfRangeException**
 
+* *wordCountMin* must be greater than 0.
+* *wordCountMax* must be greater than 0.
+* *sentenceCountMin* must be greater than 0.
+* *sentenceCountMax* must be greater than 0.
+* *paragraphCountMin* must be greater than 0.
+* *paragraphCountMax* must be greater than 0.
 * *wordCountMax* must be greater than or equal to *wordCountMin*.
 * *sentenceCountMax* must be greater than or equal to *sentenceCountMin*.
 * *paragraphCountMax* must be greater than or equal to *paragraphCountMin*.
@@ -327,14 +339,14 @@ Exceptions
 
 * *items* must not be null.
 
-**ArgumentException**
+**ArgumentOutOfRangeException**
 
 * *items* must contain one or more items.
 
 Sentence(int wordCount)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Creates a random sentence with *wordCount* words.
+Returns a random sentence with *wordCount* words.
 
 wordCount
   The number of words
@@ -342,7 +354,7 @@ wordCount
 Sentence(int wordCountMin, int wordCountMax)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Creates a random sentence with *wordCountMin* to *wordCountMax* words.
+Returns a random sentence with *wordCountMin* to *wordCountMax* words.
 
 wordCountMin
   The minimum number of words per sentence
@@ -352,14 +364,51 @@ wordCountMax
 Exceptions
 ##########
 
-**ArgumentException**
+**ArgumentOutOfRangeException**
 
 * *wordCountMax* must be greater than or equal to *wordCountMin*.
+
+TimeOnly(int startHour = 0, int startMinute = 0, int startSecond = 0)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a random TimeOnly between the given time and 23:59:00.
+
+startHour (default 0)
+  The minimum hour.
+startMinute (default 0)
+  The minimum minute.
+startSecond (default 0)
+  The minimum second.
+
+TimeOnly(TimeOnly min)
+~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a random TimeOnly between the given time and 23:59:00.
+
+min
+  The minimum time.
+
+TimeOnly(TimeOnly min, TimeOnly max)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a random TimeOnly between the given minimum and maximum.
+
+min
+  The minimum time.
+max
+  The maximum time.
+
+Exceptions
+##########
+
+**ArgumentOutOfRangeException**
+
+* *max* must be greater than or equal to *min*.
 
 Words(int wordCount, bool uppercaseFirstLetter = true, bool includePunctuation = false)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Creates a string containing *wordCount* words.
+Returns a string containing *wordCount* words.
 
 wordCount
   The number of words
@@ -368,10 +417,17 @@ uppercaseFirstLetter
 includePunctuation
   If true, includes punctuation in the words
 
+Exceptions
+##########
+
+**ArgumentOutOfRangeException**
+
+* *wordCount* must be greater than 0
+
 Words(int wordCountMin, int wordCountMax, bool uppercaseFirstLetter = true, bool includePunctuation = false)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Creates a string containing *wordCountMin* to *wordCountMax* words.
+Returns a string containing *wordCountMin* to *wordCountMax* words.
 
 wordCountMin
   The minimum number of words
@@ -385,6 +441,8 @@ includePunctuation
 Exceptions
 ##########
 
-**ArgumentException**
+**ArgumentOutOfRangeException**
 
+* *wordCountMin* must be greater than 0
+* *wordCountMax* must be greater than 0
 * *wordCountMax* must be greater than or equal to *wordCountMin*.

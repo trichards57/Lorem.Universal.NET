@@ -23,8 +23,11 @@ public static class Lorem
     /// <param name="successes">The number of successes per <paramref name="attempts"/>.</param>
     /// <param name="attempts">The attempts.</param>
     /// <returns><c>true</c> on success, otherwise <c>false</c>.</returns>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="successes"/> must be greater than or equal to 0 and <paramref name="attempts"/> must be greater than 0.</exception>
-    /// <exception cref="ArgumentException"><paramref name="successes"/> is greater than <paramref name="attempts"/>.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// <paramref name="successes"/> must be greater than or equal to 0.
+    /// <paramref name="attempts"/> must be greater than 0.
+    /// <paramref name="attempts"/> must be greater than or equal to <paramref name="successes"/>.
+    /// </exception>
     public static bool Chance(int successes, int attempts)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(successes, 0);
@@ -37,7 +40,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random DateOnly between the given date and the current date.
+    /// Returns a random DateOnly between the given date and the current date.
     /// </summary>
     /// <param name="startYear">The minimum year.</param>
     /// <param name="startMonth">The minimum month.</param>
@@ -47,7 +50,7 @@ public static class Lorem
         => DateOnly(new DateOnly(startYear, startMonth, startDay), System.DateOnly.FromDateTime(System.DateTime.Now));
 
     /// <summary>
-    /// Creates a random DateOnly between the given date and the current date.
+    /// Returns a random DateOnly between the given date and the current date.
     /// </summary>
     /// <param name="min">The minimum date.</param>
     /// <returns>A DateOnly.</returns>
@@ -55,7 +58,7 @@ public static class Lorem
         => DateOnly(min, System.DateOnly.FromDateTime(System.DateTime.Now));
 
     /// <summary>
-    /// Creates a random DateOnly between the given minimum and maximum dates.
+    /// Returns a random DateOnly between the given minimum and maximum dates.
     /// </summary>
     /// <param name="min">The minimum date.</param>
     /// <param name="max">The maximum date.</param>
@@ -71,7 +74,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random DateTime between the given date and now.
+    /// Returns a random DateTime between the given date and now.
     /// </summary>
     /// <param name="startYear">The minimum year.</param>
     /// <param name="startMonth">The minimum month.</param>
@@ -81,7 +84,7 @@ public static class Lorem
         => DateTime(new DateTime(startYear, startMonth, startDay), System.DateTime.Now);
 
     /// <summary>
-    /// Creates a random DateTime between the given date and now.
+    /// Returns a random DateTime between the given date and now.
     /// </summary>
     /// <param name="min">The minimum date.</param>
     /// <returns>A DateTime.</returns>
@@ -89,7 +92,7 @@ public static class Lorem
         => DateTime(min, System.DateTime.Now);
 
     /// <summary>
-    /// Creates a random DateTime between the given minimum and maximum dates.
+    /// Returns a random DateTime between the given minimum and maximum dates.
     /// </summary>
     /// <param name="min">The minimum date.</param>
     /// <param name="max">The maximum date.</param>
@@ -107,7 +110,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random email address of the type random1@random2.com.
+    /// Returns a random email address of the type random1@random2.com.
     /// </summary>
     /// <returns>A random email address.</returns>
     public static string Email()
@@ -116,7 +119,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random item from the given enum.
+    /// Returns a random item from the given enum.
     /// </summary>
     /// <typeparam name="TEnum">The type of the enum.</typeparam>
     /// <returns>A random <typeparamref name="TEnum"/>.</returns>
@@ -129,7 +132,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random hexidecimal number in string format.
+    /// Returns a random hexidecimal number in string format.
     /// </summary>
     /// <param name="digits">The number of digits required.</param>
     /// <returns>A string created using the 'X' format string.</returns>
@@ -153,7 +156,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random lowercase letter.
+    /// Returns a random lowercase letter.
     /// </summary>
     /// <returns>A random character between 'a' and 'z' (inclusive).</returns>
     public static char Letter()
@@ -163,7 +166,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random paragraph with <paramref name="sentenceCount"/> sentences and <paramref name="wordCount"/> words per sentence.
+    /// Returns a random paragraph with <paramref name="sentenceCount"/> sentences and <paramref name="wordCount"/> words per sentence.
     /// </summary>
     /// <param name="wordCount">The number of words per sentence.</param>
     /// <param name="sentenceCount">The number of sentences.</param>
@@ -178,7 +181,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random paragraph with <paramref name="sentenceCount"/> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+    /// Returns a random paragraph with <paramref name="sentenceCount"/> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
     /// </summary>
     /// <param name="wordCountMin">The minimum number of words per sentence.</param>
     /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -197,7 +200,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random paragraph with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+    /// Returns a random paragraph with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
     /// </summary>
     /// <param name="wordCountMin">The minimum number of words per sentence.</param>
     /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -227,7 +230,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates <paramref name="paragraphCount"/> paragraphs with <paramref name="sentenceCount"/> sentences and <paramref name="wordCount"/> words per sentence.
+    /// Returns <paramref name="paragraphCount"/> paragraphs with <paramref name="sentenceCount"/> sentences and <paramref name="wordCount"/> words per sentence.
     /// </summary>
     /// <param name="wordCount">The number of words per sentence.</param>
     /// <param name="sentenceCount">The number of sentences.</param>
@@ -247,7 +250,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates <paramref name="paragraphCount"/> paragraphs with <paramref name="sentenceCount"/> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+    /// Returns <paramref name="paragraphCount"/> paragraphs with <paramref name="sentenceCount"/> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
     /// </summary>
     /// <param name="wordCountMin">The minimum number of words per sentence.</param>
     /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -271,7 +274,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates <paramref name="paragraphCount"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+    /// Returns <paramref name="paragraphCount"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
     /// </summary>
     /// <param name="wordCountMin">The minimum number of words per sentence.</param>
     /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -301,7 +304,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates between <paramref name="paragraphCountMin"/> and <paramref name="paragraphCountMin"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
+    /// Returns between <paramref name="paragraphCountMin"/> and <paramref name="paragraphCountMin"/> paragraphs with between <paramref name="sentenceCountMin" /> and <paramref name="sentenceCountMax" /> sentences and between <paramref name="wordCountMin" /> and <paramref name="wordCountMax" /> words per sentence.
     /// </summary>
     /// <param name="wordCountMin">The minimum number of words per sentence.</param>
     /// <param name="wordCountMax">The maximum number of words per sentence.</param>
@@ -353,7 +356,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random sentence with <paramref name="wordCount"/> words.
+    /// Returns a random sentence with <paramref name="wordCount"/> words.
     /// </summary>
     /// <param name="wordCount">The word count for the sentence.</param>
     /// <returns>A string containing the generated sentence.</returns>
@@ -366,7 +369,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random sentence with between <paramref name="wordCountMin"/> and <paramref name="wordCountMax" /> words.
+    /// Returns a random sentence with between <paramref name="wordCountMin"/> and <paramref name="wordCountMax" /> words.
     /// </summary>
     /// <param name="wordCountMin">The minimum word count for the sentence.</param>
     /// <param name="wordCountMax">The maximum word count for the sentence.</param>
@@ -383,7 +386,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a random TimeOnly between the given time and 23:59:00.
+    /// Returns a random TimeOnly between the given time and 23:59:00.
     /// </summary>
     /// <param name="startHour">The minimum hour.</param>
     /// <param name="startMinute">The minimum minute.</param>
@@ -393,7 +396,7 @@ public static class Lorem
         => TimeOnly(new TimeOnly(startHour, startMinute, startSecond), new TimeOnly(23, 59, 0));
 
     /// <summary>
-    /// Creates a random TimeOnly between the given time and 23:59:00.
+    /// Returns a random TimeOnly between the given time and 23:59:00.
     /// </summary>
     /// <param name="min">The minimum time.</param>
     /// <returns>A TimeOnly.</returns>
@@ -401,7 +404,7 @@ public static class Lorem
         => TimeOnly(min, new TimeOnly(23, 59, 0));
 
     /// <summary>
-    /// Creates a random TimeOnly between the given minimum and maximum times.
+    /// Returns a random TimeOnly between the given minimum and maximum times.
     /// </summary>
     /// <param name="min">The minimum time.</param>
     /// <param name="max">The maximum time.</param>
@@ -418,7 +421,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a string containing <paramref name="wordCount"/> words.
+    /// Returns a string containing <paramref name="wordCount"/> words.
     /// </summary>
     /// <param name="wordCount">The number of words to generate.</param>
     /// <param name="uppercaseFirstLetter">if set to <c>true</c>, capitalises the first letter.</param>
@@ -433,7 +436,7 @@ public static class Lorem
     }
 
     /// <summary>
-    /// Creates a string containing between <paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> words.
+    /// Returns a string containing between <paramref name="wordCountMin"/> and <paramref name="wordCountMax"/> words.
     /// </summary>
     /// <param name="wordCountMin">The minimum number of words.</param>
     /// <param name="wordCountMax">The maximum number of words.</param>
