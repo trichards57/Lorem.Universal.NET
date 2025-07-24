@@ -8,9 +8,7 @@ Lorem.Net
 
 A .NET library for all things random!
 
-This is a fork of dochoffiday's Lorem.Net, specifically updated to support the
-new .Net Core tooling used for the new ASP .Net and Windows 10 Universal
-Applications.
+This is a fork of dochoffiday's Lorem.Net, specifically updated to support .Net 8 and 9.
 
 Contents
 --------
@@ -18,8 +16,5 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   installing
    lorem-class
-   random-helper
-   source
 
